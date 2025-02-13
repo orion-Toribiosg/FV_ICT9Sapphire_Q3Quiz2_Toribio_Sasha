@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Q3 QUIZ2</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<style type="text/css">
+		body {
+			background-image: url('https://media1.tenor.com/m/BhwW-9FnHtMAAAAd/vincent-van-gogh-starry-starry-night.gif');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed; 
+		#all {
+			background-color: #C2E7D9; 
+			width: 850px;
+			box-shadow:2px 2px 2px rgba(0,0,0, 0.8); 
+			margin: auto;
+			padding: 15px;
+			border: 3px solid #26408B;
+			text-color: #C2E7D9;
+			font-family: Apple Chancery;
+			text-color: #0F084B;
+		}
+		#moon {
+			background-color: #C2E7D9;
+			width: 700px;
+			margin: auto;
+			padding: 15px;
+			border: 3px solid #26408B;
+			font-family: Harrington;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<br>
+	<div id="moon">
+	<h1> DUSK TO MOON THEATRE CENTER </h1>
+	</div>
+<form>
+<br>
+<div id="all">
+<details ontoggle="message1()">
+	<summary>Personal Info</summary>
+	<i id="stars"></i>
+	<br> <br> 
+	<div class= "col-md-5">
+	<label>Full Name:</label>
+		<input type="text" id="fulln" class="form-control">
+	<label>Email:</label>
+		<input type="email" id="email" class="form-control"> <br>
+	<button type="button" class="btn btn-warning" onclick="submit1()"> Submit! </button>
+	<br> 
+	</div>
+</details>
+<br>
+<details ontoggle="message2()">
+	<summary>Seat/Section Costs</summary>
+	<i id="seats"></i>
+	<br> <br>
+	<div class="col-md-5">
+	<label>Select an option</label>
+		<select class="form-select" id="amount1"> 
+			<option value="none">Choose</option>
+			<option value="1800">Orchestra: Left Section</option>
+			<option value="2000">Orchestra: Center Section</option>
+			<option value="1800">Orchestra: Right Section</option>
+			<option value="1500">Mezzanine</option>
+			<option value="1700">Balcony</option>
+		</select> <br>
+	<label>Select an option</label>
+		<select class="form-select" id="amount2"> 
+			<option value="none">Choose</option>
+			<option value="0.2">Student</option>
+			<option value="0">Regular</option>
+			<option value="0.25">PWD</option>
+		</select> <br>
+	<button type="button" class="btn btn-info" onclick="calculate()"> Calculate </button>
+</details>
+<br>
+<details ontoggle="message3()">
+	<summary>Tickets</summary>
+	<div>
+	<img src="DUSK_TO_MOON.png" alt="icon" width="40%;" height="45%">
+	<button type="button" class="btn btn-primary" onclick="print()"> Print Tickets </button>
+	<button type="reset" class="btn btn-danger" onclick="window.location.reload()"> Buy Another Ticket </button>
+	<br>
+	<p><small> * Once you click "Buy Another Ticket", previous data will refresh. </small></p> <br> <br> <br> 
+	</div>
+</details>
+</div>
+<br> <Br>
+</form>
+</center>
+<script>
+	function message1(){
+		document.getElementById("stars").innerHTML = "Input required information to receive confirmations."; //First process
+	}
+	function message2(){
+		document.getElementById("seats").innerHTML = "Input required information to calculate a seat cost."; //Second process
+	}
+	function submit1(){
+		window.alert("First process completed! Please proceed to Seat/Section Costs to select your seats and know its cost."); //Second process+windowalert
+	} 
+	function calculate(){
+		var amount1 = document.getElementById("amount1").value;
+		var amount2 = document.getElementById("amount2").value;
+		var initial = amount1 * amount2 //initial discount meaning the multiplcation part
+		var discountR = amount1 - initial; //subtracting the discount from the og price
+		var total = discountR.toFixed(2); //making it to two decimal places only (if needed)
+		window.alert("Your ticket will cost Php " + total + ". Please proceed to printing. DO NOT buy another ticket without PRINTING THE INITIAL ONE. Your tickets will be sent to typed email."); //second process+calculations
+	}
+</script>
+</body>
+</html>
